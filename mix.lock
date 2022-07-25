@@ -1,10 +1,12 @@
-%{"combination": {:hex, :combination, "0.0.3", "746aedca63d833293ec6e835aa1f34974868829b1486b1e1cb0685f0b2ae1f41", [:mix], []},
-  "csv": {:hex, :csv, "1.4.4", "992f2e1418849a326fd1d9287801fa2d86091db4f9611f60781da6d236f64cd4", [:mix], [{:parallel_stream, "~> 1.0.4", [hex: :parallel_stream, optional: false]}]},
-  "earmark": {:hex, :earmark, "1.1.1", "433136b7f2e99cde88b745b3a0cfc3fbc81fe58b918a09b40fce7f00db4d8187", [:mix], []},
-  "ex_doc": {:hex, :ex_doc, "0.15.0", "e73333785eef3488cf9144a6e847d3d647e67d02bd6fdac500687854dd5c599f", [:mix], [{:earmark, "~> 1.1", [hex: :earmark, optional: false]}]},
-  "fs": {:hex, :fs, "2.12.0", "ad631efacc9a5683c8eaa1b274e24fa64a1b8eb30747e9595b93bec7e492e25e", [:rebar3], []},
-  "gen_stage": {:hex, :gen_stage, "0.11.0", "943bdfa85c75fa624e0a36a9d135baad20a523be040178f5a215444b45c66ea4", [:mix], []},
-  "mix_test_watch": {:hex, :mix_test_watch, "0.3.3", "70859889a8d1d43d1b75d69d87258a301f43209a17787cdb2bd9cab42adf271d", [:mix], [{:fs, "~> 2.12", [hex: :fs, optional: false]}]},
-  "parallel_stream": {:hex, :parallel_stream, "1.0.5", "4c78d3e675f9eff885cbe252c89a8fc1d2fb803c0d03a914281e587834e09431", [:mix], []},
-  "ratio": {:hex, :ratio, "1.0.0", "00c2f1f997356eb9c08b0641879d0fbdbbd28416d79f33b75c03dcc4cf98ba32", [:mix], []},
-  "statistics": {:hex, :statistics, "0.4.1", "e9bfe6649f70842d9ebce69aa31ac8b6928e096bde43b683d7d673057237d028", [:mix], []}}
+%{
+  "combination": {:hex, :combination, "0.0.3", "746aedca63d833293ec6e835aa1f34974868829b1486b1e1cb0685f0b2ae1f41", [:mix], [], "hexpm", "72b099f463df42ef7dc6371d250c7070b57b6c5902853f69deb894f79eda18ca"},
+  "csv": {:hex, :csv, "1.4.4", "992f2e1418849a326fd1d9287801fa2d86091db4f9611f60781da6d236f64cd4", [:mix], [{:parallel_stream, "~> 1.0.4", [hex: :parallel_stream, repo: "hexpm", optional: false]}], "hexpm", "12c0d07bcf00b41a9b3da1e9cf52eb05c04cb9ed1714b1ae2209d0d41b19af3c"},
+  "earmark": {:hex, :earmark, "1.1.1", "433136b7f2e99cde88b745b3a0cfc3fbc81fe58b918a09b40fce7f00db4d8187", [:mix], [], "hexpm", "d446a8ffea9968237fcada883303ac6e04a00a1dc41039061645eea9e7af65a0"},
+  "ex_doc": {:hex, :ex_doc, "0.15.0", "e73333785eef3488cf9144a6e847d3d647e67d02bd6fdac500687854dd5c599f", [:mix], [{:earmark, "~> 1.1", [hex: :earmark, repo: "hexpm", optional: false]}], "hexpm", "e5ea59f50ecdfe4cc755808450dafe35221d5a0f4a31c42e80a7188eca570e4c"},
+  "fs": {:hex, :fs, "2.12.0", "ad631efacc9a5683c8eaa1b274e24fa64a1b8eb30747e9595b93bec7e492e25e", [:rebar3], [], "hexpm", "ff6043acf648b2b65026aeab3d32af68d2974d73c5a4c483bbdca60c0072b7e5"},
+  "gen_stage": {:hex, :gen_stage, "0.11.0", "943bdfa85c75fa624e0a36a9d135baad20a523be040178f5a215444b45c66ea4", [:mix], [], "hexpm", "e3c22b2e003970a8c5f58b763bdf645c298a035833b2f241c468fe330108cebf"},
+  "mix_test_watch": {:hex, :mix_test_watch, "0.3.3", "70859889a8d1d43d1b75d69d87258a301f43209a17787cdb2bd9cab42adf271d", [:mix], [{:fs, "~> 2.12", [hex: :fs, repo: "hexpm", optional: false]}], "hexpm", "67827e8d11ae1a3c2bfc85b8d7c33e11aeaa2ab5790cd0c339cee8af3e6b7e55"},
+  "parallel_stream": {:hex, :parallel_stream, "1.0.5", "4c78d3e675f9eff885cbe252c89a8fc1d2fb803c0d03a914281e587834e09431", [:mix], [], "hexpm", "9ee9ac36325cadff357e5fdb79c27465074db67f9af00f407e15bf649239950a"},
+  "ratio": {:hex, :ratio, "1.0.0", "00c2f1f997356eb9c08b0641879d0fbdbbd28416d79f33b75c03dcc4cf98ba32", [:mix], [], "hexpm", "bd20f7aff8c5052a59037a66b603df55a7f23db1b23e7f8287bd331c0d9b8e9c"},
+  "statistics": {:hex, :statistics, "0.4.1", "e9bfe6649f70842d9ebce69aa31ac8b6928e096bde43b683d7d673057237d028", [:mix], [], "hexpm", "726d8791e9bafb08b3ceeb5b08df6664f29a73a0e6ac0db835500b686a153bd5"},
+}

@@ -3,7 +3,7 @@ defmodule AnalysisPrep.Probability do
   Provide basic probability functions
   """
 
-  import Statistics.Math, only: [factorial: 1, floor: 1]
+  import Statistics.Math, only: [factorial: 1]
   import AnalysisPrep, only: [is_range: 1, sum_map: 1]
 
   @doc """
@@ -26,10 +26,11 @@ defmodule AnalysisPrep.Probability do
     event = such_that(predicate, space)
     p(event, space)
   end
+
   def p(event, space) do
     if !is_range(space) && is_map(space) do
       space
-      |> Enum.filter(fn({k, _}) ->
+      |> Enum.filter(fn {k, _} ->
         Enum.member?(event, k)
       end)
       |> Enum.into(%{})
@@ -38,7 +39,7 @@ defmodule AnalysisPrep.Probability do
     else
       event = MapSet.new(event)
       space = MapSet.new(space)
-      numerator = MapSet.intersection(event, space) |> MapSet.size
+      numerator = MapSet.intersection(event, space) |> MapSet.size()
       denominator = MapSet.size(space)
       Ratio.new(numerator, denominator)
     end
@@ -58,18 +59,25 @@ defmodule AnalysisPrep.Probability do
   """
   def such_that(predicate, space) do
     cond do
-      is_range(space) -> such_that(predicate, space, :enumerable)
-        space |> Enum.filter(& predicate.(&1)) |> MapSet.new
-      is_map(space) -> such_that(predicate, space, :map)
-      true -> such_that(predicate, space, :enumerable)
+      is_range(space) ->
+        such_that(predicate, space, :enumerable)
+        space |> Enum.filter(&predicate.(&1)) |> MapSet.new()
+
+      is_map(space) ->
+        such_that(predicate, space, :map)
+
+      true ->
+        such_that(predicate, space, :enumerable)
     end
   end
+
   def such_that(predicate, space, :enumerable) do
-    space |> Enum.filter(& predicate.(&1)) |> MapSet.new
+    space |> Enum.filter(&predicate.(&1)) |> MapSet.new()
   end
+
   def such_that(predicate, space, :map) do
     space
-    |> Enum.filter(fn({k, _}) ->
+    |> Enum.filter(fn {k, _} ->
       predicate.(k)
     end)
     |> Enum.into(%{})
@@ -85,13 +93,12 @@ defmodule AnalysisPrep.Probability do
 
   """
   def joint(a, b) do
-    Enum.flat_map(a, fn({k1, v1}) ->
-      Enum.map(b, fn({k2, v2}) ->
+    Enum.flat_map(a, fn {k1, v1} ->
+      Enum.map(b, fn {k2, v2} ->
         {{k1, k2}, v1 * v2}
       end)
     end)
     |> Enum.into(%{})
-
   end
 
   @doc """
@@ -105,8 +112,8 @@ defmodule AnalysisPrep.Probability do
 
   """
   def cross(a, b) do
-    Enum.flat_map(a, fn(e) ->
-      Enum.map(b, fn(f) -> [e, f] end)
+    Enum.flat_map(a, fn e ->
+      Enum.map(b, fn f -> [e, f] end)
     end)
   end
 
@@ -125,7 +132,6 @@ defmodule AnalysisPrep.Probability do
   def combinations(list, n \\ 2) do
     list |> Combination.combine(n)
   end
-
 
   @doc """
   Generate samples from a series
@@ -151,17 +157,19 @@ defmodule AnalysisPrep.Probability do
   def sample(list, n \\ 1)
   def sample([], _), do: nil
   def sample(_, 0), do: nil
+
   def sample(list, 1) do
     set_seed!()
-    hd get_sample(list, 1)
+    hd(get_sample(list, 1))
   end
+
   def sample(list, n) do
     set_seed!()
     get_sample(list, n)
   end
 
   defp get_sample(list, n) do
-  Enum.map(1..n, fn(_) -> Enum.random(list) end)
+    Enum.map(1..n, fn _ -> Enum.random(list) end)
   end
 
   defp set_seed! do
@@ -183,10 +191,10 @@ defmodule AnalysisPrep.Probability do
       0
 
   """
-  @spec choose(integer,integer) :: integer
+  @spec choose(integer, integer) :: integer
   def choose(_, 0), do: 0
+
   def choose(n, c) do
     floor(factorial(n) / (factorial(n - c) * factorial(c)))
   end
 end
-
